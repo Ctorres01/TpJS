@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tableau JS</title>
+</head>
+<body>
+    <script type="text/javascript">
+        document.write("<table border='2px solid black'><caption>I'm a table</caption>");
+        document.write("<tr>");
+        for(var i = 1; i<=12; i++) {
+            document.write("<td>"+i+"</td>");
+            if(i%4 == 0) {
+                document.write("</tr><tr>");
+            }
+        }
+        document.write("</tr></table>");
+    </script>
+</body>
+</html>
