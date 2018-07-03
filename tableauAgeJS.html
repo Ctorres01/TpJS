@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tableau Age JavaScript</title>
+</head>
+
+<body>
+    <form name='formulaire' action='/tableauAgeJS.html' + onsubmit='return getAge()' method='post'>
+        <input type="text" name="inputName" required>
+        <input type="submit" value="Quel age as-tu?">
+    </form>
+    <script type="text/javascript">
+        var tab = {
+            "anatole": 19,
+            "bernard": 45,
+            "christophe": 34,
+            "dominique": 55,
+            "franck": 28,
+            "georges": 78,
+            "lucas": 12,
+            "madelaine": 30,
+            "pierre": 25
+        };
+        function getAge() {
+            var name = document.forms["formulaire"]["inputName"].value;
+            var firstLetter = name.charAt(0).toUpperCase()
+            alert(firstLetter+name.slice(1)+" a "+tab[name]);
+        }
+    </script>
+</body>
+
+</html>
