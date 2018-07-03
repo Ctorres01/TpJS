@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ajax API</title>
+</head>
+<body>
+    <script type="text/javascript">
+        function afterOnLoad() {
+            var json = JSON.parse(xhttp.responseText);
+            console.log(json.users);
+            console.log(json.hobbies);
+        }
+        var xhttp = new XMLHttpRequest();
+        xhttp.onload = afterOnLoad;
+        xhttp.open("GET", "http://loisirs-web-backend.cleverapps.io/db", true);
+        xhttp.send();
+    </script>
+</body>
+</html>
