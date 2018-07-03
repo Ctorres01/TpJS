@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-
+scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="to_do_list.css">
+    <title>Todo list</title>
+</head>
+
+<body>
+    <h1 id="titre">Todo list</h1>
+    <ul id='list'>
+        <li class="item" onclick="deleteTask(this)">Une première tâche</li>
+        <li class="item" onclick="deleteTask(this)">Une seconde tâche</li>
+        <li class="item" onclick="deleteTask(this)">Une troisième tâche</li>
+    </ul>
+    <form  name='formulaire' action='/tableauAgeJS.html' onsubmit='return addTask()' method='post'>
+        <input id='inputTask' type="text" placeholder="Tâche" />
+        <input type="submit" value="Ajouter"/>
+    </form>
+    <script>
+        function addTask() {
+            var taskText = document.forms['formulaire']['inputTask'].value;
+            var task = document.createElement('li');
+
+            var attrClass = document.createAttribute("class");
+            attrClass.value = "item";
+            task.setAttributeNode(attrClass);
+
+            var attrOnClick = document.createAttribute("onClick");
+            attrOnClick.value = "deleteTask(this)";
+            task.setAttributeNode(attrOnClick);
+
+
+            task.appendChild(document.createTextNode(taskText));
+            document.getElementById('list').appendChild(task);
+        }
+
+        function deleteTask(objet) {
+            if(confirm("Voulez-vous vraiment supprimer cette tâche?")) {
+                document.getElementById('list').removeChild(objet);
+            }
+        }
+    </script>
+</body>
+
+</html>
